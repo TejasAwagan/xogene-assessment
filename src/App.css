@@ -1,0 +1,57 @@
+.App{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  margin: 0 auto;
+}
+
+@media (max-width:1200px){
+  .container{
+    width:90%;
+    margin: auto;
+  }
+
+}
+@media(max-width:768px){
+  .container{
+    width:95%;
+    margin: 0 auto;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+.search-bar {
+  width: 100%;
+}
+}
+@media(max-width:480px){
+  .continer{
+    width:95%;
+    margin: 0 10px;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .search-bar {
+    width: 100%;
+margin-bottom: 10px;
+  }
+  
+}
+.container {
+  margin-top: 10px;
+}
+.search-bar  {
+  padding: 10px;
+}
+.button-primary{
+  background-color: rgb(101, 101, 171);
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: none;
+}

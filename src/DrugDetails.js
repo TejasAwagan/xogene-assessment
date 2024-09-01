@@ -10,13 +10,13 @@ const DrugDetails = () => {
   useEffect(() => {
     const fetchDrugDetails = async () => {
       try {
-        const response = await axios.get(`https://lhncbc.nlm.nih.gov/REST/rxcui.json?name=${drug_name}`);
+        const response = await axios.get(`https://rxnav.nlm.nih.gov/REST/rxcui.json?name=${drug_name}`);
         if (response.data.idGroup.rxnormId) {
           const rxcui = response.data.idGroup.rxnormId[0];
-          const detailsResponse = await axios.get(`https://lhncbc.nlm.nih.gov/REST/rxcui/${rxcui}/allrelated.json`);
+          const detailsResponse = await axios.get(`https://rxnav.nlm.nih.gov/REST/rxcui/${rxcui}/allrelated.json`);
           setDrugDetails(detailsResponse.data.relatedGroup.conceptGroup[0].conceptProperties[0]);
           
-          const ndcResponse = await axios.get(`https://lhncbc.nlm.nih.gov/REST/rxcui/${rxcui}/ndcs.json`);
+          const ndcResponse = await axios.get(`https://rxnav.nlm.nih.gov/REST/rxcui/${rxcui}/ndcs.json`);
           setNdcs(ndcResponse.data.ndcGroup.ndcList.ndc);
         } else {
           setDrugDetails(null);

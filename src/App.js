@@ -1,27 +1,16 @@
-import { useState } from "react";
-import "./App.css";
-import Search from "./Search";
-import DrugDetails from "./DrugDetails";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SearchPage from './SearchPage';
+import DrugDetails from './DrugDetails';
 
 function App() {
-  const [activeDrugDetails, setActiveDrugDetails] = useState("");
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={<Search setActiveDrugDetails={setActiveDrugDetails} />}
-          exact='/'
-          ></Route>
-          <Route
-            path="/drugs-details"
-            element={<DrugDetails activeDrugDetails={activeDrugDetails} />}
-          ></Route>
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SearchPage />} />
+        <Route path="/drugs/:drug_name" element={<DrugDetails />} />
+      </Routes>
+    </Router>
   );
 }
 
